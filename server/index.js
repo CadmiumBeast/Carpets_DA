@@ -10,14 +10,20 @@ app.use(cors());
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
-const productRoutes = require('./routes/productRoutes');
+const subCategoryRoutes = require('./routes/subCategoryRoutes');
 const productStockRoutes = require('./routes/productStockRoutes');
+const quotationRoutes = require('./routes/quotationRoutes');
+const siteVisitRoutes = require('./routes/siteVisitRoutes');
+const customerRoutes = require('./routes/customerRoutes');
 
 // Route middleware
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
-app.use('/api/products', productRoutes);
+app.use('/api/subcategories', subCategoryRoutes);
 app.use('/api/stock', productStockRoutes);
+app.use('/api/quotations', quotationRoutes);
+app.use('/api/sitevisits', siteVisitRoutes);
+app.use('/api/customers', customerRoutes);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)

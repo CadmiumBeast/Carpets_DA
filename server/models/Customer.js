@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const CustomerSchema = new mongoose.Schema({
-    fullName: String,
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Optional: only if customer signed up
+    fullName: { type: String, required: true },
     phone: String,
+    email: String,
     address: String,
-    status: { type: String, default: 'Inquiry' }, // Inquiry, Quoted, Job Done
-    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+    city: String,
+    status: { type: String, enum: ['Inquiry', 'Quoted', 'Job Done', 'Active'], default: 'Inquiry' },
+    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' } // Sales person/admin assigned
 }, { timestamps: true });
+
+module.exports = mongoose.model('Customer', CustomerSchema);

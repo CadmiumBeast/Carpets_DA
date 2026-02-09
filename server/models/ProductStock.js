@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
 const ProductStockSchema = new mongoose.Schema({
-    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    subCategoryId: { type: mongoose.Schema.Types.ObjectId, ref: 'SubCategory', required: true },
     rollNumber: String,
     dimensions: {
         width: Number,
         length: Number
     },
-    warehouseLocation: String,
+    colour: String,
+    location: String, // e.g., "Warehouse A - Shelf 3"
     status: { type: String, enum: ['Available', 'Reserved', 'Sold'], default: 'Available' }
-});
+}, { timestamps: true });
+
+module.exports = mongoose.model('ProductStock', ProductStockSchema);

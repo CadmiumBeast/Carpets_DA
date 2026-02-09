@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true }, // Will be hashed
+    password: { type: String, required: true }, 
     role: { type: String, enum: ['customer', 'admin'], default: 'customer' },
     email: { type: String },
     fullName: { type: String }
@@ -22,7 +22,6 @@ UserSchema.pre('save', async function() {
     }
 });
 
-// Method to compare password
 UserSchema.methods.comparePassword = async function(candidatePassword) {
     return await bcrypt.compare(candidatePassword, this.password);
 };

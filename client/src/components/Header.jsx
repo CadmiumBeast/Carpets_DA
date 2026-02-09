@@ -1,4 +1,5 @@
-import { useAuth } from '../auth/ProtectedRoute';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../auth/useAuth';
 import './Header.css';
 
 const Header = () => {
@@ -7,9 +8,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="header-logo">
+        <Link to="/" className="header-logo">
           <img src="/images/logo.png" alt="Carpets.lk" />
-        </div>
+        </Link>
 
         <nav className="header-nav">
           {isAuthenticated ? (
@@ -17,22 +18,29 @@ const Header = () => {
               <span className="header-user">
                 Welcome, {user.fullName || user.username}!
               </span>
-              {user.role === 'admin' && (
-                <a href="/admin" className="nav-link">Dashboard</a>
-              )}
+              
+              <Link to="/" className="nav-link">Home</Link>
+              
               {user.role === 'customer' && (
                 <>
-                  <a href="/" className="nav-link">Home</a>
-                  <a href="/products" className="nav-link">Products</a>
-                  <a href="/orders" className="nav-link">My Orders</a>
+                  <Link to="/categories" className="nav-link">Categories</Link>
+                  <Link to="/contact" className="nav-link">Contact</Link>
                 </>
               )}
+              
+              {user.role === 'admin' && (
+                <Link to="/admin" className="nav-link">Admin Dashboard</Link>
+              )}
+              
               <button onClick={logout} className="logout-btn">Logout</button>
             </>
           ) : (
             <>
-              <a href="/login" className="nav-link">Login</a>
-              <a href="/signup" className="nav-link-primary">Sign Up</a>
+              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/categories" className="nav-link">Categories</Link>
+              <Link to="/contact" className="nav-link">Contact</Link>
+              <Link to="/login" className="nav-link">Login</Link>
+              <Link to="/signup" className="nav-link-primary">Sign Up</Link>
             </>
           )}
         </nav>
