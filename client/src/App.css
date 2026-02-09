@@ -1,0 +1,15 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.page h1 {
+  color: #10b981;
+  margin-bottom: 8px;
+}
+
+.page p {
+  color: #718096;
+  margin: 0;
+}
