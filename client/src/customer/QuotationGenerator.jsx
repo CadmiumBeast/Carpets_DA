@@ -32,7 +32,7 @@ const QuotationGenerator = () => {
 
   const fetchSubcategories = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/subcategories');
+      const response = await axios.get('https://carpets-da.onrender.com/api/subcategories');
       setSubcategories(response.data);
     } catch {
       setError('Failed to load subcategories');
@@ -125,7 +125,7 @@ const QuotationGenerator = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/quotations/request',
+        'https://carpets-da.onrender.com/api/quotations/request',
         quotationData
       );
 

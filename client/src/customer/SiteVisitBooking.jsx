@@ -101,7 +101,7 @@ const SiteVisitBooking = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/sitevisits/request',
+        'https://carpets-da.onrender.com/api/sitevisits/request',
         bookingData
       );
 

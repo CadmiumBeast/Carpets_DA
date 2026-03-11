@@ -19,8 +19,8 @@ const SubCategoryDetail = () => {
       try {
         setLoading(true);
         const [subcategoryRes, stockRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/subcategories/${id}`),
-          axios.get('http://localhost:5000/api/stock')
+          axios.get(`https://carpets-da.onrender.com/api/subcategories/${id}`),
+          axios.get('https://carpets-da.onrender.com/api/stock')
         ]);
 
         setSubcategory(subcategoryRes.data);

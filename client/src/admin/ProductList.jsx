@@ -13,7 +13,7 @@ const ProductList = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get('https://carpets-da.onrender.com/api/products');
         setProducts(response.data);
       } catch {
         setError('Failed to fetch products');
@@ -30,7 +30,7 @@ const ProductList = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://carpets-da.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccessMessage('Product deleted successfully');

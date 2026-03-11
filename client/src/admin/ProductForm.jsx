@@ -26,8 +26,8 @@ const ProductForm = () => {
       try {
         setLoading(true);
         const [categoriesRes, productRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/categories'),
-          isEdit ? axios.get(`http://localhost:5000/api/products/${id}`) : Promise.resolve(null)
+          axios.get('https://carpets-da.onrender.com/api/categories'),
+          isEdit ? axios.get(`https://carpets-da.onrender.com/api/products/${id}`) : Promise.resolve(null)
         ]);
 
         setCategories(categoriesRes.data);
@@ -102,9 +102,9 @@ const ProductForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/products/${id}`, payload, config);
+        await axios.put(`https://carpets-da.onrender.com/api/products/${id}`, payload, config);
       } else {
-        await axios.post('http://localhost:5000/api/products', payload, config);
+        await axios.post('https://carpets-da.onrender.com/api/products', payload, config);
       }
 
       navigate('/admin/products');

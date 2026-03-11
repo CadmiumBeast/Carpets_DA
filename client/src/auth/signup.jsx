@@ -43,7 +43,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+      const response = await axios.post('https://carpets-da.onrender.com/api/auth/signup', {
         username: formData.username,
         password: formData.password,
         email: formData.email,

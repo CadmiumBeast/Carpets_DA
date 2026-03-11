@@ -16,8 +16,8 @@ const CategoryDetail = () => {
       try {
         setLoading(true);
         const [categoryRes, subcategoriesRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/categories/${id}`),
-          axios.get('http://localhost:5000/api/subcategories')
+          axios.get(`https://carpets-da.onrender.com/api/categories/${id}`),
+          axios.get('https://carpets-da.onrender.com/api/subcategories')
         ]);
 
         setCategory(categoryRes.data);

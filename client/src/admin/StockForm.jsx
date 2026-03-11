@@ -26,8 +26,8 @@ const StockForm = () => {
       try {
         setLoading(true);
         const [subcategoriesRes, stockRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/subcategories'),
-          isEdit ? axios.get(`http://localhost:5000/api/stock/${id}`) : Promise.resolve(null)
+          axios.get('https://carpets-da.onrender.com/api/subcategories'),
+          isEdit ? axios.get(`https://carpets-da.onrender.com/api/stock/${id}`) : Promise.resolve(null)
         ]);
 
         setSubcategories(subcategoriesRes.data);
@@ -95,9 +95,9 @@ const StockForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/stock/${id}`, payload, config);
+        await axios.put(`https://carpets-da.onrender.com/api/stock/${id}`, payload, config);
       } else {
-        await axios.post('http://localhost:5000/api/stock', payload, config);
+        await axios.post('https://carpets-da.onrender.com/api/stock', payload, config);
       }
 
       navigate('/admin/stock');

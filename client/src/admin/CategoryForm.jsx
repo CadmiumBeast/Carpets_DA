@@ -27,7 +27,7 @@ const CategoryForm = () => {
   const fetchCategory = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5000/api/categories/${id}`);
+      const response = await axios.get(`https://carpets-da.onrender.com/api/categories/${id}`);
       setFormData(response.data);
       if (response.data.image) {
         setImagePreview(response.data.image);
@@ -75,9 +75,9 @@ const CategoryForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/categories/${id}`, formData, config);
+        await axios.put(`https://carpets-da.onrender.com/api/categories/${id}`, formData, config);
       } else {
-        await axios.post('http://localhost:5000/api/categories', formData, config);
+        await axios.post('https://carpets-da.onrender.com/api/categories', formData, config);
       }
 
       navigate('/admin/categories');

@@ -14,7 +14,7 @@ const CustomersList = () => {
         setLoading(true);
         const token = localStorage.getItem('token');
         const params = filter !== 'all' ? `?status=${filter}` : '';
-        const response = await axios.get(`http://localhost:5000/api/customers${params}`, {
+        const response = await axios.get(`https://carpets-da.onrender.com/api/customers${params}`, {
           headers: { Authorization: `Bearer ${token}` }
         }).catch(() => ({ data: [] }));
         setCustomers(response.data);

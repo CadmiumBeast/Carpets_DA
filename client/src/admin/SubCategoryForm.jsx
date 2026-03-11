@@ -25,8 +25,8 @@ const SubCategoryForm = () => {
       try {
         setLoading(true);
         const [categoriesRes, subcategoryRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/categories'),
-          isEdit ? axios.get(`http://localhost:5000/api/subcategories/${id}`) : Promise.resolve(null)
+          axios.get('https://carpets-da.onrender.com/api/categories'),
+          isEdit ? axios.get(`https://carpets-da.onrender.com/api/subcategories/${id}`) : Promise.resolve(null)
         ]);
 
         setCategories(categoriesRes.data);
@@ -108,9 +108,9 @@ const SubCategoryForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/subcategories/${id}`, payload, config);
+        await axios.put(`https://carpets-da.onrender.com/api/subcategories/${id}`, payload, config);
       } else {
-        await axios.post('http://localhost:5000/api/subcategories', payload, config);
+        await axios.post('https://carpets-da.onrender.com/api/subcategories', payload, config);
       }
 
       navigate('/admin/subcategories');

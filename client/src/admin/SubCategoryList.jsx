@@ -16,7 +16,7 @@ const SubCategoryList = () => {
   const fetchSubcategories = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/subcategories');
+      const response = await axios.get('https://carpets-da.onrender.com/api/subcategories');
       setSubcategories(response.data);
     } catch {
       setError('Failed to fetch subcategories');
@@ -30,7 +30,7 @@ const SubCategoryList = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/subcategories/${id}`, {
+      await axios.delete(`https://carpets-da.onrender.com/api/subcategories/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccessMessage('SubCategory deleted successfully');

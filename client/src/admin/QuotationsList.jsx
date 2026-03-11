@@ -14,7 +14,7 @@ const QuotationsList = () => {
         setLoading(true);
         const token = localStorage.getItem('token');
         const params = filter !== 'all' ? `?status=${filter}` : '';
-        const response = await axios.get(`http://localhost:5000/api/quotations${params}`, {
+        const response = await axios.get(`https://carpets-da.onrender.com/api/quotations${params}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setQuotations(response.data);
@@ -43,14 +43,14 @@ const QuotationsList = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:5000/api/quotations/${id}/status`,
+        `https://carpets-da.onrender.com/api/quotations/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // Refetch quotations after status change
       setLoading(true);
       const params = filter !== 'all' ? `?status=${filter}` : '';
-      const response = await axios.get(`http://localhost:5000/api/quotations${params}`, {
+      const response = await axios.get(`https://carpets-da.onrender.com/api/quotations${params}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setQuotations(response.data);

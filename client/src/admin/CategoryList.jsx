@@ -16,7 +16,7 @@ const CategoryList = () => {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/categories');
+      const response = await axios.get('https://carpets-da.onrender.com/api/categories');
       setCategories(response.data);
     } catch {
       setError('Failed to fetch categories');
@@ -30,7 +30,7 @@ const CategoryList = () => {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/categories/${id}`, {
+      await axios.delete(`https://carpets-da.onrender.com/api/categories/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSuccessMessage('Category deleted successfully');

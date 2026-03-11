@@ -24,11 +24,11 @@ const AdminDashboard = () => {
       const config = { headers: { Authorization: `Bearer ${token}` } };
 
       const [categoriesRes, subcategoriesRes, stockRes, quotationsRes, siteVisitsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/categories'),
-        axios.get('http://localhost:5000/api/subcategories'),
-        axios.get('http://localhost:5000/api/stock'),
-        axios.get('http://localhost:5000/api/quotations', config).catch(() => ({ data: [] })),
-        axios.get('http://localhost:5000/api/sitevisits', config).catch(() => ({ data: [] }))
+        axios.get('https://carpets-da.onrender.com/api/categories'),
+        axios.get('https://carpets-da.onrender.com/api/subcategories'),
+        axios.get('https://carpets-da.onrender.com/api/stock'),
+        axios.get('https://carpets-da.onrender.com/api/quotations', config).catch(() => ({ data: [] })),
+        axios.get('https://carpets-da.onrender.com/api/sitevisits', config).catch(() => ({ data: [] }))
       ]);
 
       setStats({

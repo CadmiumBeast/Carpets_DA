@@ -15,7 +15,7 @@ const CustomerHome = () => {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5000/api/categories');
+      const response = await axios.get('https://carpets-da.onrender.com/api/categories');
       setCategories(response.data);
     } catch {
       setError('Failed to load categories');

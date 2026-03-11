@@ -14,7 +14,7 @@ const SiteVisitsList = () => {
         setLoading(true);
         const token = localStorage.getItem('token');
         const params = filter !== 'all' ? `?status=${filter}` : '';
-        const response = await axios.get(`http://localhost:5000/api/sitevisits${params}`, {
+        const response = await axios.get(`https://carpets-da.onrender.com/api/sitevisits${params}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSiteVisits(response.data);
@@ -41,14 +41,14 @@ const SiteVisitsList = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:5000/api/sitevisits/${id}/status`,
+        `https://carpets-da.onrender.com/api/sitevisits/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       // Refetch site visits after status change
       setLoading(true);
       const params = filter !== 'all' ? `?status=${filter}` : '';
-      const response = await axios.get(`http://localhost:5000/api/sitevisits${params}`, {
+      const response = await axios.get(`https://carpets-da.onrender.com/api/sitevisits${params}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSiteVisits(response.data);
