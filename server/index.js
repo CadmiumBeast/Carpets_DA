@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +25,14 @@ app.use('/api/stock', productStockRoutes);
 app.use('/api/quotations', quotationRoutes);
 app.use('/api/sitevisits', siteVisitRoutes);
 app.use('/api/customers', customerRoutes);
+
+// Serve static files from the client build
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// SPA catch-all: serve index.html for any non-API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
