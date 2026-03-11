@@ -1,0 +1,10 @@
+{
+  "name": "crm-store-app",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && node index.js",
+    "render-build": "cd client && npm install && npm run build && cd ../server && npm install"
+  }
+}
